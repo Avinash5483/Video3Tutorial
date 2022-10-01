@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+:root{ /*la on peut se servir d'une variable pour la couleur*/
+    --primary-color: #047aed;
+    --secondary-color: #1c3fa8;
+    --dark-color: #002240;
+    --light-color: #f4f4f4;
+    --success-color: #5cb85c;
+    --error-color: #d9534f;
+}
+/*et du coup si on veut changer couleur la partout,nou net change li ici et partout pou changer*/
+
+*{
+    box-sizing: border-box; /*it allows us to add padding n marging without having to add to the width*/
+    padding: 0; /*pou enleve margin*/
+    margin: 0;
+}
+
+body{
+    font-family: 'lato',sans-serif;
+    color: #333;
+    line-height: 1.6; /*pou l'espace entre mo bane menu*/
+}
+
+ul{
+    list-style-type: none ; /*pou enleve ban point dan mo menu*/
+}
+
+a{
+    text-decoration: none; /*remove underline*/
+    color: #333;
+}
+
+h1,h2{
+    font-weight: 300; /*less bold*/
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+p{
+    margin: 10px 0;
+}
+
+img{
+    width:100%; /*it will take 100% of the container*/
+}
+
+code, pre {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+
+/*________Navbar__________________*/
+.navbar{
+    background-color: var(--primary-color); /*exemple de notre variable*/
+    color:aliceblue; 
+    height: 70px; /*height de sa background bleu loriku la*/
+}
+
+.navbar .flex{
+    justify-content: space-between;/*on separe le logo luriki et la liste deMenu*/
+}
+
+.navbar ul{ /*nou mette nou la liste menu horizontally*/
+    display: flex;
+}
+
+.navbar a{ /*color de nou la liste menu*/
+    color: white;
+    padding: 10px; /*pou mette l'espace entre mo la liste*/
+    margin: 0 5px;
+}
+
+.navbar a:hover{
+    border-bottom: 2px white solid;
+}
+/*___________Navbar Ends________________*/
+
+
+/*____________showcase starts____________*/
+.showcase{
+    height: 400px;
+    background-color: var(--primary-color);
+    color: white; /*la couleur de nous text*/
+    position: relative;
+}
+
+.showcase h1{ /*agrandi nou h1*/
+    font-size: 40px;
+}
+
+.showcase p{ /*un peu d'espace entre mon p et mon h1*/
+    margin: 20px 0; 
+}
+
+.showcase .grid{
+    overflow: visible; /*apres showcase-form,nu fer overflow visible pou donne sa design ene boute depasser de nu form la*/
+    grid-template-columns: 55% 45%;
+    gap: 30px;
+}
+
+.showcase-text{
+    animation: slideInFromLeft 1s ease-in; 
+}
+
+.showcase-form{
+    position: relative;
+    top: 60px;
+    height: 350px;
+    width: 400px;/*nu diminuer so width*/
+    padding: 40px;
+    justify-self: flex-end;/*push the form to the right*/
+    z-index: 100;
+    animation: slideInFromRight 1s ease-in;
+}
+
+.showcase-form .form-control{
+    margin: 30px 0; /*l'espace entre ban placeholder la*/
+}
+
+.showcase-form input[type='text'], /*nu target text et email,nu fer boite form la vine ban la ligne*/
+.showcase-form input[type='email']{ 
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    width: 100%;
+    padding: 3px;
+    font-size: 16px;
+} 
+
+.showcase-form input:focus{
+    outline: none; /*remove boite kan nou clique dessus*/
+}
+
+.showcase::before,
+.showcase::after{
+    content: '';
+    position: absolute;
+    height: 100px;
+    bottom: -70px;
+    right: 0;
+    left: 0;
+    background: white;
+    transform: skewY(-3deg);/* pou to fer sa boute rouge la incliner inP*/
+    -webkit-transform: skewY(-3deg); /* sa 3 la mo pa kone ki li fer*/
+    -moz-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
+}
+
+
+/*_____________STATS PART_______________*/
+
+.stats{ /*push it a lil bit below parski mo msg welcome pa ti p paret*/
+    padding-top: 100px;
+    animation: slideInFromBottom 1s ease-in;
+}
+
+.stats-heading{ /*welcome in vine lor 3 la ligne et centrer*/
+    max-width: 500px;
+    margin: auto;
+}
+
+.stats .grid h3{ /*agrandir nou 3 stats*/
+    font-size: 35px;
+}
+
+.stats .grid p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/*_______________Cli____________*/
+.cli .grid{
+    grid-template-columns: repeat(3,1fr); /*la mo deux columns in vine l'un a cote de l'autre*/
+    grid-template-rows: repeat(2,1fr);
+}
+
+.cli .grid > *:first-child{
+    grid-column: 1 / span 2; /*first child c'est mo img quine span 1 to 2 en largeur*/
+    grid-row: 1 / span 2;  /* la en hauteur*/
+}
+
+
+/*_______Cloud part_____________*/
+
+.cloud .grid{
+    grid-template-columns: 4fr 3fr;
+}
+
+
+/*_________Languages_____________*/
+
+.languages .card{ /*languages names*/
+    text-align: center;
+    margin: 18px 10px 40px;
+    transition: transform 0.2s ease-in; /*pou qui hover soit plus smooth*/
+}
+
+.languages .flex{ /* more responsive*/
+    flex-wrap: wrap;
+}
+
+.languages .card h4{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.languages .card:hover{
+    transform: translateY(-15px);
+}
+
+/*_______Features________*/
+
+.features-head img {
+    width: 300px;
+    justify-self: flex-end; /*img qui va a la fin*/
+}
+
+.docs-head img {
+    width: 150px;
+    justify-self: flex-end;
+
+}
+.feactures-sub-head img {
+    width: 400px;
+    justify-self: flex-end; /*img qui va a la fin*/
+
+}
+
+.feactures-main .card > i{
+    margin-right: 20px;
+
+}
+
+.feactures-main .grid {
+    padding: 30px;
+}
+
+.feactures-main .grid > *:first-child {
+    grid-column: 1 / span 3;
+}
+
+
+.feactures-main .grid > *:nth-child(2) {
+    grid-column: 1 / span 2;
+}
+
+
+/*_________DOcs Part__________*/
+
+.docs-main h3{
+    margin: 20px 0;
+
+}
+
+.docs-main .grid {
+    grid-template-columns: 1fr 2fr;
+    align-items: flex-start; /*pou mette essential laO*/
+}
+
+.docs-main nav li{ /*la liste de essential*/
+    font-size: 17px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px #ccc solid;
+}
+
+.docs-main a:hover {
+    font-weight: bold;
+}
+
+
+/*______________Footer______________*/
+.footer .social a { /*espace entre icons*/
+    margin: 0 10px;
+}
+
+
+
+/*________Animation_____________*/
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%)
+    }
+
+    100% {
+        transform: translateX(0); /*to its normal position*/
+    }
+}
+
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%)
+    }
+
+    100% {
+        transform: translateX(0); /*to its normal position*/
+    }
+}
+
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%)
+    }
+
+    100% {
+        transform: translateX(0); /*to its normal position*/
+    }
+}
+
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%)
+    }
+
+    100% {
+        transform: translateX(0); /*to its normal position*/
+    }
+}
+
+
+
+
+
+/*_____________tablets and under Responsive part___________*/
+
+@media(max-width: 768px) {
+.grid,
+.showcase .grid,
+.stats .grid,
+.cli .grid,
+.cloud .grid,
+.feactures-main .grid,
+.docs-main .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.showcase{
+    height: auto;
+}
+
+.showcase-text {
+    text-align: center;
+    margin-top: 40px;
+    animation: slideInFromTop 1s ease-in;
+}
+
+.showcase-form{
+    justify-self: center;
+    margin: auto;
+    animation: slideInFromBottom 1s ease-in;
+}
+
+.cli .grid > *:first-child{ /*easy to use et deploy*/
+    grid-column: 1; /*first child c'est mo img quine span 1 to 2 en largeur*/
+    grid-row: 1;  /* la en hauteur*/
+}
+
+.features-head,
+.feactures-sub-head,
+.docs-head {
+    text-align: center;
+
+}
+
+.features-head img,
+.feactures-sub-head img,
+.docs-head img {
+    justify-self: center;   
+}
+
+.feactures-main .grid >*:first-child, /*span parts*/
+.feactures-main .grid >*:nth-child(2){
+    grid-column: 1;
+
+}
+   
+}
+
+
+
+
+
+
+/*______________MObile responsive part________________*/
+
+@media (max-width: 500px) {
+
+.navbar {
+    height: 110px;
+}
+
+.navbar .flex {
+    flex-direction: column;
+}
+
+.navbar ul {
+    padding: 10px;
+    background-color: rgba(0,0,0,0.1); /*transparant background*/
+}
+}
